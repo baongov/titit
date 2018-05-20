@@ -8,7 +8,7 @@ class Message extends Component {
     render() {
         return (
             <div>
-                {this.props.messageValue.message}
+                {this.props.text}
             </div>
         );
     }
@@ -23,7 +23,13 @@ class MessageList extends Component {
             <div>
                 {
                     messages.map(function (element, i) {
-                        return <Message messageValue={element} />
+                        return (
+                            <Message
+                                key={element.messageID} 
+                                text={element.message} 
+                                author={element.author}
+                                time= {element.time}
+                                />)
                     })
                 }
             </div>

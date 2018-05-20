@@ -1,36 +1,52 @@
-import { 
+import {
     ADD_MESSAGE,
     DELETE_MESSAGE,
     UPDATE_MESSAGE
-} from '../actions'
+} from '../actions';
+
+import { splitMessage } from '../../tools/messageSplitter';
+import uuid from 'node-uuid';
 
 // twitterMessages : [{
 //     author : 
 //     time :
-//     text :
+//     message :
 // }]
 
-const findMessageIndexByID = function(messages, messageID) {
+const findMessageIndexByID = function (messages, messageID) {
     var index = 0;
-    messages.forEach(function(message) {
+    messages.forEach(function (message) {
         if (message.messageID == messageID) {
             return index;
         }
         index++;
     });
-} 
+}
 
 export default function twitterMessages(state = [], action) {
     switch (action.type) {
         case ADD_MESSAGE: {
-            return [
-                ...state,
-                {
-                    messageID : action.messageID,
-                    message:action.message,
+            var result = splitMessage(action.message)
+
+            if (result.constructor != Array) {
+                return [
+                    ...state
+                ]
+            }
+
+            var messages = result.map(function (ele) {
+                var messageID = uuid.v1();
+                return {
+                    messageID: messageID,
+                    message: ele,
                     time: action.time,
                     authorID: action.authorID
                 }
+            });
+
+            return [
+                ...state,
+                ...messages
             ];
         }
         case DELETE_MESSAGE: {
@@ -43,7 +59,7 @@ export default function twitterMessages(state = [], action) {
         case UPDATE_MESSAGE: {
             return state;
         }
-        default: 
-        return state;
+        default:
+            return state;
     }
 }

@@ -1,15 +1,11 @@
-import uuid from 'node-uuid';
-
 export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const DELETE_MESSAGE = 'DELETE_MESSAGE';
 export const UPDATE_MESSAGE = 'UPDATE_MESSAGE';
 
 export function addMessage(message, authorID) {
-    var messageID = uuid.v1(); 
     var time = new Date();
     return {
         type: 'ADD_MESSAGE',
-        messageID,
         message,
         time,
         authorID
