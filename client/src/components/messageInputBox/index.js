@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import {addMessage} from '../../state/actions' 
-
+import PropTypes from 'prop-types';
+import {Button} from 'react-bootstrap'
 import './index.css'
 
 class MessageInputBox extends Component {
   constructor(props, context) {
     super(props, context);
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handlePost =this.handlePost.bind(this);
   }
 
-  handleChange() {
+  handlePost () {
     const { store } = this.context;
 
-    store.dispath(
+    store.dispatch(
       addMessage(
-        this.inputValue, 
+        this.messageBox.value,
         store.getState().authentication.authorID
       )
     );
@@ -25,19 +26,19 @@ class MessageInputBox extends Component {
     return (
       <div>
         <input
-          autoFocus
-          onChange={this.handleChange}
+          autoFocu
           placeholder="What is your mood now?"
-          ref={e => this.inputValue = e}
+          ref={e => this.messageBox = e}
           type="text"
         />
+        <Button onClick={this.handlePost}>Post</Button>
       </div>
     );
   }
 }
 
 MessageInputBox.contextTypes = {
-  store: React.PropTypes.object
+  store: PropTypes.object
 }
 
 export default MessageInputBox;

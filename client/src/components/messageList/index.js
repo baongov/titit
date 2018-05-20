@@ -1,31 +1,44 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import './index.css'
 
-const Message = React.createClass({
-    render(){
-        <div>
-            {this.props.element.message}
-        </div>
+class Message extends Component {
+    render() {
+        return (
+            <div>
+                {this.props.messageValue.message}
+            </div>
+        );
     }
-});
+}
 
 class MessageList extends Component {
     render() {
         const { store } = this.context;
-        var messages = store.getState().twitterMessages;
-        var messageListRender = messages.map(function (element, i) {
-            return <Message messageValue={element}/>
-        });
+        const messages = store.getState().twitterMessages.reverse();
+
         return (
             <div>
-                {messageListRender}
+                {
+                    messages.map(function (element, i) {
+                        return <Message messageValue={element} />
+                    })
+                }
             </div>
         );
     }
 }
 
 MessageList.contextTypes = {
-    store: React.PropTypes.object
+    store: PropTypes.object.isRequired
 }
 
-export default MessageList;
+const mapStateToProps = (state) => ({
+    twitterMessages: state.twitterMessages
+})
+
+export default connect(
+    mapStateToProps
+)(MessageList);
