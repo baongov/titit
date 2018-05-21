@@ -10,6 +10,7 @@ class MessagePage extends Component {
         return (
             <div>
                 <MessageInputBox/>
+                <hr/>
                 <MessageList/>
             </div>
         );

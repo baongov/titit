@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {addMessage} from '../../state/actions' 
+import { addMessage } from '../../state/actions'
 import PropTypes from 'prop-types';
-import {Button} from 'react-bootstrap'
+import { Button, FormControl } from 'react-bootstrap'
 import './index.css'
 
 class MessageInputBox extends Component {
@@ -10,10 +10,12 @@ class MessageInputBox extends Component {
 
     this.handlePost = this.handlePost.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
     this.addMessage = this.addMessage.bind(this);
+    this.state = { textLength: 0 };
   }
 
-  handlePost () {
+  handlePost() {
     this.addMessage();
   }
 
@@ -23,7 +25,13 @@ class MessageInputBox extends Component {
     }
   }
 
-  addMessage(){
+  handleOnChange() {
+    var textLength = this.messageBox.value.length;
+
+    this.setState({ textLength: textLength });
+  }
+
+  addMessage() {
     const { store } = this.context;
 
     store.dispatch(
@@ -38,14 +46,24 @@ class MessageInputBox extends Component {
   render() {
     return (
       <div>
-        <input
-          autoFocus
-          placeholder="What is your mood now?"
-          ref={e => this.messageBox = e}
-          onKeyUp={this.handleKeyUp}
+        <FormControl
           type="text"
+          autoFocus
+          inputRef={e => this.messageBox = e}
+          placeholder="What is your mood now?"
+          onKeyUp={this.handleKeyUp}
+          onChange={this.handleOnChange}
+          className="MessageBox"
         />
-        <Button onClick={this.handlePost}>Post</Button>
+        <div style={{ 'text-align': 'right' }}>
+
+          <p>{this.state.textLength}/50</p>
+          <Button
+            className="TwitButton"
+            onClick={this.handlePost}>
+            Post
+          </Button>
+        </div>
       </div>
     );
   }

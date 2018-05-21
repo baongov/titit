@@ -4,6 +4,7 @@
     "ajv": "^6.5.0",
     "ajv-keywords": "^3.2.0",
     "eslint": "^4.19.1",
+    "firebase": "^5.0.3",
     "history": "^4.7.2",
     "mkdirp": "^0.5.1",
     "node-uuid": "^1.4.8",

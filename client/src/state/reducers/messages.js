@@ -11,16 +11,17 @@ import uuid from 'node-uuid';
 //     author : 
 //     time :
 //     message :
+//     messageID :
 // }]
 
 const findMessageIndexByID = function (messages, messageID) {
     var index = 0;
-    messages.forEach(function (message) {
-        if (message.messageID == messageID) {
+    for(index in messages){
+        if (messages[index].messageID == messageID) {
             return index;
         }
         index++;
-    });
+    };
 }
 
 export default function twitterMessages(state = [], action) {
@@ -51,10 +52,11 @@ export default function twitterMessages(state = [], action) {
         }
         case DELETE_MESSAGE: {
             var deletedMessageIndex = findMessageIndexByID(state, action.messageID)
+            var result = [...state]
 
-            return [
-                state.slice(deletedMessageIndex, 1)
-            ];
+            result.splice(deletedMessageIndex, 1)
+            
+            return result;
         }
         case UPDATE_MESSAGE: {
             return state;

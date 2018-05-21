@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import {Col} from 'react-bootstrap'
+
 import NavBarInstance from './components/navbar';
 
 // Redux module
@@ -9,7 +11,6 @@ import rootReducer from './state/reducers'
 
 // Twitter components
 import MessagePage from './pages/message'
-import LoginPage from './pages/login'
 import AboutPage from './pages/about'
 import NotFoundPage from './pages/notfound'
 
@@ -24,13 +25,13 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <NavBarInstance />
-
-            <Switch>
-              <Route exact path='/' component={MessagePage} />
-              <Route exact path='/login' component={LoginPage} />
-              <Route exact path='/about' component={AboutPage} />
-              <Route exact path='*' component={NotFoundPage} />
-            </Switch>
+            <Col className="col-sm-4 col-sm-offset-4">
+              <Switch>
+                <Route exact path='/' component={MessagePage} />
+                <Route exact path='/about' component={AboutPage} />
+                <Route exact path='*' component={NotFoundPage} />
+              </Switch>
+            </Col>
           </div>
         </BrowserRouter>
       </Provider>
