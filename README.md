@@ -3,7 +3,7 @@
 This is a web service that allow users to post their message and split posted message if it has longer than 50 charaters.
 
 ## Introduction
-A npm named [Create React App](https://github.com/facebookincubator/create-react-app) was used to initial project. Besides, Redux, React Bootstap and Firebase are other tools applied in this project.
+A npm named [Create React App](https://github.com/facebookincubator/create-react-app) was used to initial project. Besides, Redux, React Bootstrap and Firebase are other tools applied in this project.
 
 Main feautures:
 * Post/Delete message with/without login
