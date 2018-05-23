@@ -4,7 +4,7 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { authenticate } from '../../state/actions';
-import { signInWithGoogle, signOut} from '../../state/actions';
+import { signInWithGoogle, signOut } from '../../state/actions';
 
 import './index.css'
 
@@ -34,20 +34,20 @@ class NavBarInstance extends Component {
             <Nav pullRight>
               {
                 authentication.authenticated ?
-                    <NavItem onClick={() => signOut(store.dispatch)}>
-                      Sign out
-                    </NavItem>
-                    : null
+                  <NavItem onClick={() => signOut(store.dispatch)}>
+                    <label className="TwitLabel">Sign out</label>
+                  </NavItem>
+                  : null
               }
               {
                 authentication.authenticated ?
-                    <NavItem>
-                    <a 
+                  <NavItem>
+                    <a
                       href={generateGooglePlusURL(authentication.uid)}
-                      >
-                      {authentication.authorName}
+                    >
+                      <label className="TwitLabel">{authentication.authorName}</label>
                     </a>
-                    </NavItem>
+                  </NavItem>
                   :
                   <NavItem onClick={() => signInWithGoogle(store.dispatch)}>
                     <label className="TwitLabel">Sign in with Google</label>

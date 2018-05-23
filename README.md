@@ -1,14 +1,14 @@
 # TwitSplit
 
-This is a web service that allow users to post their message and split posted message if it has longer than 50 charaters.
+This is a web service that allow users to post their message and split posted message if it has longer than 50 characters.
 
 ## Introduction
 A npm named [Create React App](https://github.com/facebookincubator/create-react-app) was used to initial project. Besides, Redux, React Bootstrap and Firebase are other tools applied in this project.
 
 Main feautures:
-* Post/Delete message with/without login
-* Split message if it has longer than 50 character
-* Login with Google account
+* Post/Delete message with/without sign in
+* Split message if it has longer than 50 characters
+* Sign in/out with Google account
 
 See demo by click [here](https://assignment-twitsplit.firebaseapp.com/)
 
