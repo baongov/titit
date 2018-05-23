@@ -1,4 +1,3 @@
-import { Record } from 'immutable';
 import { SIGN_IN_SUCCESS, SIGN_OUT_SUCCESS } from '../actions';
 
 const initAuth = {

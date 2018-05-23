@@ -1,0 +1,7 @@
+.TwitLabel {
+    color : darkgray
+}
+
+.TwitLabel:hover {
+    color : aliceblue
+}

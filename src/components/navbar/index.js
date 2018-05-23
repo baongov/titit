@@ -21,14 +21,14 @@ class NavBarInstance extends Component {
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">TWITTER</Link>
+              <Link to="/"><label className="TwitLabel">TWITTER</label></Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav bsStyle="pills">
               <NavItem>
-                <Link to="/about">About</Link>
+                <Link to="/about"><label className="TwitLabel">About</label></Link>
               </NavItem>
             </Nav>
             <Nav pullRight>
@@ -50,7 +50,7 @@ class NavBarInstance extends Component {
                     </NavItem>
                   :
                   <NavItem onClick={() => signInWithGoogle(store.dispatch)}>
-                    Sign in with Google
+                    <label className="TwitLabel">Sign in with Google</label>
                   </NavItem>
               }
             </Nav>
