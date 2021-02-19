@@ -1,4 +1,4 @@
-# TwitSplit
+# Introduction
 
 A simple react app allow user to add comments with or without their identity
 
