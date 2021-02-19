@@ -1,6 +1,6 @@
 # TwitSplit
 
-This is a web service that allow users to post their message and split posted message if it has longer than 50 characters.
+A simple react app allow user to add comments with or without their identity
 
 ## Introduction
 A npm named [Create React App](https://github.com/facebookincubator/create-react-app) was used to initial project. Besides, Redux, React Bootstrap and Firebase are other tools applied in this project.
@@ -13,9 +13,7 @@ Main feautures:
 See demo by click [here](https://assignment-twitsplit.firebaseapp.com/)
 
 ## How to run
-* Clone project: `git clone https://github.com/ngovietbao/assignment-twitsplit`
-
-* Direct to main folder: `cd assignment-twitsplit`
+* Direct to main folder: `cd titit`
 * Install packages listed in `package.json`: `npm install`
 * Run React app: `npm start`
 
